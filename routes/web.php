@@ -31,8 +31,8 @@ Route::get('/articles/{id}', [PageController::class, 'articles']);
 
 
 //Praktikkum 3 No 1
-Route::get('/home', function () {
-    return ('welcome');
+Route::get('/', function () {
+    return ('Welcome Home');
 });
 
 //Prak 3 No 2

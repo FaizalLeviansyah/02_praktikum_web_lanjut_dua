@@ -46,9 +46,7 @@
                 </div>
 
                 <div>
-                    <h3>{{$welcome}}</h3>
-                    <h3>{{$about}}</h3>
-                    <h3>{{$article}}</h3>
+                    <h1>Hi!! I'm Faizal Leviansyah</h1>
                 </div>
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
