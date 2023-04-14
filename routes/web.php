@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\GoodsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,69 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about', function() {
-    return view('about');
-});
-
-Route::get('/article/{id}', function($id) {
-    return view('article', ['id' => $id]);
-});
-
-Route::get('/', [PageController::class, 'index']);
-Route::get('/about', [PageController::class, 'about']);
-Route::get('/articles/{id}', [PageController::class, 'articles']);
-
-
-//Praktikkum 3 No 1
+//
 Route::get('/', function () {
-    return ('Welcome Home');
+    return ('Type /goods to access CRUD database');
 });
 
-//Prak 3 No 2
-Route::prefix('product')->group(function () {
-    Route::get('/productlist1', function () {
-    return redirect('https://www.educastudio.com/category/marbel-edu-games');
-    });
-    Route::get('/productlist2', function () {
-        return redirect('https://www.educastudio.com/category/marbel-and-friends-kids-games');
-    });
-    Route::get('/productlist3', function () {
-        return redirect('https://www.educastudio.com/category/riri-story-books');
-    });
-    Route::get('/productlist4', function () {
-        return redirect('https://www.educastudio.com/category/kolak-kids-songs');
-    });
-});
 
-//Prak 3 No 3
-Route::get('/news/news{id}', function ($id) {
-    if ($id == 1 ){
-        return redirect('https://www.educastudio.com/news');
-    }
-    else  {
-        return redirect('https://www.educastudio.com/news/educa-studio-berbagi-untuk-warga-sekitar-terdampak-covid-19');
-    }
-});
 
-//Prak 3 No 4
-Route::prefix('program')->group(function () {
-    Route::get('/daftarprogram1', function () {
-    return redirect('https://www.educastudio.com/program/karir');
-    });
-    Route::get('/daftarprogram2', function () {
-        return redirect('https://www.educastudio.com/program/magang');
-    });
-    Route::get('/daftarprogram3', function () {
-        return redirect('https://www.educastudio.com/program/kunjungan-industri');
-    });
-});
-
-//Praktikum 3 No 5
-Route::get('/aboutus', function () {
-    return redirect('https://www.educastudio.com/about-us');
-});
-
-//Praktikum 3 No 6
-Route::resource('contactus', PageController::class)->only([
-    'contactus'
-]);
+//koding di file lain untuk mengambil referensi controller dari goods supaya bisa di coding
+Route::get('/goods',[GoodsController::class,'index']);
+Route::get('/goods/create',[GoodsController::class,'create']);
+Route::post('/goods/store',[GoodsController::class,'store']);
+Route::get('/goods/{id_goods}/edit',[GoodsController::class,'edit']);
+Route::put('/goods/{id_goods}',[GoodsController::class,'update']);
+Route::delete('/goods/{id_goods}',[GoodsController::class,'destroy']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/goods/search', [GoodsController::class,'search']);
