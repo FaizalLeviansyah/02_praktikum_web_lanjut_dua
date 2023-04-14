@@ -50,7 +50,7 @@
                 <div class="card border-0 shadow rounded">
                     <div class="card-body">
                         <h2><i>Faizal Leviansyah</i></h2>
-                        <h2>MIDTERM CRUD (Create, Read, Update, Delete)</h2> <br><br>
+                        <h2>MIDTERM CRUD (Create, Read, Update, Delete)</h2><br>
                         <form  action="/goods/search" class="inline" method="GET">
                             <input class="form-control" type="search" name="search" 
                             placeholder="Search By it's Name....">
